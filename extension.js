@@ -20,9 +20,6 @@ function activate(context) {
             // Replace the selected text with the new text
             editor.edit(editBuilder => {
                 editBuilder.replace(selection, newText);
-            }).then(() => {
-                // Optional: Show a message when done
-                vscode.window.showInformationMessage('Commas removed successfully!');
             });
         }
     });
