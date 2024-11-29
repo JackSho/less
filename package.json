@@ -9,7 +9,9 @@
   "categories": [
     "Other"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "onCommand:paredit.sexpRangeExpansion"
+  ],
   "main": "./extension.js",
   "contributes": {
     "commands": [
@@ -30,6 +32,9 @@
     "eslint": "^8.54.0",
     "typescript": "^5.3.2"
   },
+  "extensionDependencies": [
+    "betterthantomorrow.calva"
+  ],
   "keywords": [],
   "author": "",
   "license": "ISC"
