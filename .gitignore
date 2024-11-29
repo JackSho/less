@@ -1,0 +1,68 @@
+# Dependencies
+node_modules/
+.node_modules/
+built/*
+tests/cases/rwc/*
+tests/cases/perf/*
+!tests/cases/webharness/compilerToString.js
+test-args.txt
+~*.docx
+\#*\#
+.\#*
+
+# Build output
+out/
+dist/
+*.vsix
+
+# VS Code directories
+.vs/
+.vscode-test/
+.vscode/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+
+# nyc test coverage
+.nyc_output
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# dotenv environment variables file
+.env
+
+# macOS-specific files
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Windows-specific files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
