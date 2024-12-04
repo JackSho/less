@@ -29,6 +29,12 @@ None at this time.
 
 ## Release Notes
 
+### 0.0.2
+
+Added line break removal functionality:
+
+- Basic line break removal functionality
+
 ### 0.0.1
 
 Initial release:

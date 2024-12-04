@@ -2,7 +2,7 @@
   "name": "comma-less",
   "displayName": "Comma Less",
   "description": "Remove all commas from selected text",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "engines": {
     "vscode": "^1.85.0"
   },
@@ -17,7 +17,15 @@
     "commands": [
       {
         "command": "comma-less.removeCommas",
-        "title": "Remove Commas"
+        "title": "Remove Commas",
+        "category": "Remove",
+        "description": "Remove all commas from selected text"
+      },
+      {
+        "command": "comma-less.removeLineBreaks",
+        "title": "Remove Line Breaks",
+        "category": "Remove",
+        "description": "Remove all line breaks from selected text"
       }
     ]
   },
