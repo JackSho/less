@@ -1,4 +1,4 @@
-# Comma Less
+# Less
 
 A simple VS Code extension that removes all commas from selected text.
 
