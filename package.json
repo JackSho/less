@@ -33,6 +33,23 @@
         "category": "Comment",
         "description": "Toggle block comment for selected text"
       }
+    ],
+    "keybindings": [
+      {
+        "command": "comma-less.removeCommas",
+        "key": "ctrl+alt+c ,",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "comma-less.removeLineBreaks",
+        "key": "ctrl+alt+c .",
+        "when": "editorTextFocus"
+      },
+      {
+        "command": "comma-less.toggleBlockComment",
+        "key": "cmd+alt+/",
+        "when": "editorTextFocus"
+      }
     ]
   },
   "scripts": {
