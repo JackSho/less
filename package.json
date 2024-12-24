@@ -2,7 +2,7 @@
   "name": "comma-less",
   "displayName": "Comma Less",
   "description": "Remove all commas from selected text",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "engines": {
     "vscode": "^1.85.0"
   },
@@ -10,7 +10,7 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:paredit.sexpRangeExpansion"
+    "onStartupFinished"
   ],
   "main": "./extension.js",
   "contributes": {
@@ -26,6 +26,12 @@
         "title": "Remove Line Breaks",
         "category": "Remove",
         "description": "Remove all line breaks from selected text"
+      },
+      {
+        "command": "comma-less.toggleBlockComment",
+        "title": "Toggle Block Comment",
+        "category": "Comment",
+        "description": "Toggle block comment for selected text"
       }
     ]
   },
