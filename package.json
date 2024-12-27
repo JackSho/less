@@ -1,8 +1,14 @@
 {
-  "name": "comma-less",
-  "displayName": "Comma Less",
-  "description": "Remove all commas from selected text",
+  "name": "less-edn",
+  "publisher": "JackSho",
+  "displayName": "Comma, line breaks and others Less",
+  "description": "Remove somethings from selected text",
+  "icon": "icon.png",
   "version": "0.0.3",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JackSho/less"
+  },
   "engines": {
     "vscode": "^1.85.0"
   },
@@ -16,19 +22,19 @@
   "contributes": {
     "commands": [
       {
-        "command": "comma-less.removeCommas",
+        "command": "less.edn.removeCommas",
         "title": "Remove Commas",
         "category": "Remove",
         "description": "Remove all commas from selected text"
       },
       {
-        "command": "comma-less.removeLineBreaks",
+        "command": "less.edn.removeLineBreaks",
         "title": "Remove Line Breaks",
         "category": "Remove",
         "description": "Remove all line breaks from selected text"
       },
       {
-        "command": "comma-less.toggleBlockComment",
+        "command": "less.edn.toggleBlockComment",
         "title": "Toggle Block Comment",
         "category": "Comment",
         "description": "Toggle block comment for selected text"
@@ -36,17 +42,17 @@
     ],
     "keybindings": [
       {
-        "command": "comma-less.removeCommas",
+        "command": "less.edn.removeCommas",
         "key": "ctrl+alt+c ,",
         "when": "editorTextFocus"
       },
       {
-        "command": "comma-less.removeLineBreaks",
+        "command": "less.edn.removeLineBreaks",
         "key": "ctrl+alt+c .",
         "when": "editorTextFocus"
       },
       {
-        "command": "comma-less.toggleBlockComment",
+        "command": "less.edn.toggleBlockComment",
         "key": "cmd+alt+/",
         "when": "editorTextFocus"
       }

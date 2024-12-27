@@ -137,17 +137,17 @@ function activate(context) {
 
 function registerCommands(context) {
     const removeCommasCommand = vscode.commands.registerCommand(
-        'comma-less.removeCommas',
+        'less.edn.removeCommas',
         () => handleRemoveCommas(vscode.window.activeTextEditor)
     );
 
     const removeLineBreaksCommand = vscode.commands.registerCommand(
-        'comma-less.removeLineBreaks',
+        'less.edn.removeLineBreaks',
         () => handleRemoveLineBreaks(vscode.window.activeTextEditor)
     );
 
     const commentBlockCommand = vscode.commands.registerCommand(
-        'comma-less.toggleBlockComment',
+        'less.edn.toggleBlockComment',
         () => toggleCommentBlock(vscode.window.activeTextEditor)
     );
 

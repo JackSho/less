@@ -1,4 +1,4 @@
-# Less
+# less.edn
 
 A simple VS Code extension that removes all commas from selected text.
 
