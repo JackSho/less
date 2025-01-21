@@ -134,6 +134,7 @@ function insertNewlineBetweenElements(text) {
     let lastChar = '';
     let inString = false;
     let escape = false;
+    let skipSpaces = false;
 
     for (let i = 0; i < text.length; i++) {
         const char = text[i];
@@ -152,18 +153,25 @@ function insertNewlineBetweenElements(text) {
             }
         }
 
-        // 只在深度为1时（即顶层vector）处理元素之间的换行
+        // 处理空格和换行
         if (depth === 1 && !inString) {
-            if (char === ' ' && lastChar !== '\n' && lastChar !== '[') {
-                // 检查下一个非空白字符是否是 ']'
-                let nextNonSpace = i + 1;
-                while (nextNonSpace < text.length && text[nextNonSpace] === ' ') {
-                    nextNonSpace++;
+            if (char === ' ') {
+                if (!skipSpaces && lastChar !== '\n' && lastChar !== '[') {
+                    // 检查下一个非空白字符是否是 ']'
+                    let nextNonSpace = i + 1;
+                    while (nextNonSpace < text.length && text[nextNonSpace] === ' ') {
+                        nextNonSpace++;
+                    }
+                    if (text[nextNonSpace] !== ']') {
+                        result += '\n';
+                        skipSpaces = true;
+                        continue;
+                    }
                 }
-                if (text[nextNonSpace] !== ']') {
-                    result += '\n';
-                    continue;
-                }
+                // 跳过额外的空格
+                continue;
+            } else {
+                skipSpaces = false;
             }
         }
 
