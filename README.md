@@ -29,6 +29,15 @@ None at this time.
 
 ## Release Notes
 
+### 0.0.4
+
+- Insert newlines between vector elements.
+
+### 0.0.3
+
+- Toggle block comment for selected text.
+- Add default keybindings.
+
 ### 0.0.2
 
 Added line break removal functionality:

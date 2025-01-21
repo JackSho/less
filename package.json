@@ -4,7 +4,7 @@
   "displayName": "Comma, line breaks and others Less",
   "description": "Remove somethings from selected text",
   "icon": "icon.png",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "repository": {
     "type": "git",
     "url": "https://github.com/JackSho/less"
@@ -38,6 +38,10 @@
         "title": "Toggle Block Comment",
         "category": "Comment",
         "description": "Toggle block comment for selected text"
+      },
+      {
+        "command": "less.edn.insertNewlines",
+        "title": "Insert Newlines Between Vector Elements"
       }
     ],
     "keybindings": [

@@ -128,6 +128,54 @@ async function toggleCommentBlock(editor) {
     vscode.commands.executeCommand("paredit.backwardSexp");
 }
 
+function insertNewlineBetweenElements(text) {
+    let result = '';
+    let depth = 0;
+    let lastChar = '';
+    let inString = false;
+    let escape = false;
+
+    for (let i = 0; i < text.length; i++) {
+        const char = text[i];
+
+        // 处理字符串
+        if (char === '"' && !escape) {
+            inString = !inString;
+        }
+        escape = char === '\\' && !escape;
+
+        if (!inString) {
+            if (char === '[') {
+                depth++;
+            } else if (char === ']') {
+                depth--;
+            }
+        }
+
+        // 在元素之间添加换行
+        if (depth > 0 && !inString) {
+            if (char === ' ' && lastChar !== '\n' && lastChar !== '[') {
+                // 检查下一个非空白字符是否是 ']'
+                let nextNonSpace = i + 1;
+                while (nextNonSpace < text.length && text[nextNonSpace] === ' ') {
+                    nextNonSpace++;
+                }
+                if (text[nextNonSpace] !== ']') {
+                    result += '\n';
+                    continue;
+                }
+            }
+        }
+
+        result += char;
+        if (char !== ' ') {
+            lastChar = char;
+        }
+    }
+
+    return result;
+}
+
 /**
  * @param {vscode.ExtensionContext} context
  */
@@ -151,9 +199,30 @@ function registerCommands(context) {
         () => toggleCommentBlock(vscode.window.activeTextEditor)
     );
 
+    let insertNewlines = vscode.commands.registerCommand(
+        'less.edn.insertNewlines',
+        () => {
+            const editor = vscode.window.activeTextEditor;
+            if (editor) {
+                const document = editor.document;
+                const selection = editor.selection;
+                const text = document.getText(selection);
+
+                if (text.trim().startsWith('[')) {
+                    const newText = insertNewlineBetweenElements(text);
+                    editor.edit(editBuilder => {
+                        editBuilder.replace(selection, newText);
+                    });
+                }
+            }
+        }
+    );
+
+
     context.subscriptions.push(removeCommasCommand);
     context.subscriptions.push(removeLineBreaksCommand);
     context.subscriptions.push(commentBlockCommand);
+    context.subscriptions.push(insertNewlines);
 }
 
 function deactivate() { }
