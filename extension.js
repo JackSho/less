@@ -152,8 +152,8 @@ function insertNewlineBetweenElements(text) {
             }
         }
 
-        // 在元素之间添加换行
-        if (depth > 0 && !inString) {
+        // 只在深度为1时（即顶层vector）处理元素之间的换行
+        if (depth === 1 && !inString) {
             if (char === ' ' && lastChar !== '\n' && lastChar !== '[') {
                 // 检查下一个非空白字符是否是 ']'
                 let nextNonSpace = i + 1;
